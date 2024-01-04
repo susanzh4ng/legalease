@@ -7,7 +7,8 @@ const { errorHandler } = require('./middleware/errorMiddleware')
 const router = express.Router()
 const dotenv = require('dotenv').config() //loading .env's content
 const port = process.env.PORT || 5000
-const url = 'https://www.uscourts.gov/glossary/sentence' //the website we are scraping from
+const constUrl = 'https://www.uscourts.gov/glossary/'
+let url = 'https://www.uscourts.gov/glossary/' //the website we are scraping from
 const app = express() //calling and storing express
 app.use(cors()) //enables CORS for routes
 app.use(express.json()) //parse JSON
@@ -26,7 +27,9 @@ app.post('/api/definition', asyncHandler(async (req, res, next) => {
         next(error) //pass to errorHandler
         return;
     }
-    res.status(200).json({message: 'set yassss'})
+    term = req.body.text
+    url += term //setting with the user's specified term
+    res.status(200).json({message: url})
 }))
 
 /*
@@ -44,9 +47,16 @@ app.get('/api/definition', asyncHandler(async (req, res) => {
         page('.taxonomy-term-description', html).each(function() { //picking out the definition text
             definition = page(this).find('p').text() //getting the text from the <p> tag of the "taxonomy-term-description" div
         })
+        if (!definition) { //if the "taxonomy-term-description" class is not found, means the term is not found and definition could not be initiated
+            throw new Error('Class .taxonomy-term-description was not found on the page.');
+        }
         definition = definition.replace(/[\n\t"]/g, '').trim(); //removing JS special charcters
         res.json({message: definition})
-    }).catch(err => console.log(err))
+        url = constUrl //setting the url back to basis url
+    }).catch(function (error) {
+        console.log(error)
+        res.status(400).json({message: 'Term is not defined in the U.S. Courts Glossary.'}) //bad client request
+    })
 }))
 
 
