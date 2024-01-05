@@ -28,7 +28,7 @@ app.post('/api/definition', asyncHandler(async (req, res, next) => {
         return;
     }
     term = req.body.text
-    url += term //setting with the user's specified term
+    url += term //setting url with the user's specified term
     res.status(200).json({message: url})
 }))
 
@@ -55,7 +55,7 @@ app.get('/api/definition', asyncHandler(async (req, res) => {
         url = constUrl //setting the url back to basis url
     }).catch(function (error) {
         console.log(error)
-        res.status(400).json({message: 'Term is not defined in the U.S. Courts Glossary.'}) //bad client request
+        res.status(400).json({message: 'This term is not defined in the U.S. Courts Glossary.'}) //bad client request
     })
 }))
 
