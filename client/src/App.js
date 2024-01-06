@@ -77,10 +77,16 @@ function App() {
         />
         <button><img src={magglass} alt='search' /></button>
       </form>
+      <div className={isLoading ? "" : "hide"}>
+        <p>Define legal terms with ease with <span>Legalease</span></p>
+      </div>
       <div className={isLoading ? "hide": ""}> {/*hide this div while loading*/}
         <h3>{term.text}</h3>
         <p>{def}</p> {/*displaying definition*/}
       </div>
+      <footer>
+        <i>All terms and definitions have been sourced from the Administrative Office of the U.S. Courts.</i>
+      </footer>
     </div>
   );
 }
