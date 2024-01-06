@@ -48,12 +48,14 @@ app.get('/api/definition', asyncHandler(async (req, res) => {
             definition = page(this).find('p').text() //getting the text from the <p> tag of the "taxonomy-term-description" div
         })
         if (!definition) { //if the "taxonomy-term-description" class is not found, means the term is not found and definition could not be initiated
+            url = constUrl
             throw new Error('Class .taxonomy-term-description was not found on the page.');
         }
         definition = definition.replace(/[\n\t"]/g, '').trim(); //removing JS special charcters
         res.json({message: definition})
         url = constUrl //setting the url back to basis url
     }).catch(function (error) {
+        url = constUrl
         console.log(error)
         res.status(400).json({message: 'This term is not defined in the U.S. Courts Glossary.'}) //bad client request
     })

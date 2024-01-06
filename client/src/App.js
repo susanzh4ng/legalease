@@ -1,6 +1,6 @@
 import './App.css';
 import {useState} from 'react';
-import magglass from './magnifying-glass.png';
+import magglass from './button.svg';
 import axios from "axios";
 
 function App() {
@@ -67,6 +67,7 @@ function App() {
   };
   return (
     <div className="App">
+      <h9>h999i</h9>
       <form onSubmit={handleSubmit}>
         <input 
           type="text"
@@ -75,7 +76,7 @@ function App() {
           value={term.text} //value is from term state
           onChange={handleChange} //updating state
         />
-        <button><img src={magglass} alt='search' /></button>
+        <button><img src={magglass} width="26" height="26" alt='search' /></button>
       </form>
       <div className={isLoading ? "" : "hide"}>
         <p>Define legal terms with ease with <span>Legalease</span></p>
