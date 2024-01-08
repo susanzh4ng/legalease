@@ -1,47 +1,87 @@
 .App {
   text-align: center;
   font-family: 'Roboto',sans-serif;
+  max-width: 350px;
+  max-height: 400px;
+  background: #FDFDFC;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input {
+  z-index: 2;
+  position: absolute;
+  top: 58px;
+  left: 23px;
+  border: none;
+  border-radius: 20px;
+  background:#FDFDFC;
+  width: 305px;
+  height: 42px;
+  box-shadow: 4px 4px 10px 0px rgba(255, 255, 255, 0.50), -4px -4px 10px 0px rgba(24, 40, 84, 0.20);
+  color: #707B96;
+  font-size: 16px;
+  padding-left: 20px;
+  box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input:focus {
+  outline: none;
+  border: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button {
+  z-index: 3;
+  position: absolute;
+  top: 66px;
+  left: 279px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .hide {
   display: none;
 }
-
+.default-text {
+  color: #59422C;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 136px 41.5px 0px 41.5px;
+  text-align: left;
+}
 span {
   font-family: 'Roboto Serif', serif;
+  font-weight: 600;
+}
+
+footer {
+  margin: 0px 41.5px 31px 41.5px;
+  position: fixed; 
+  bottom: 0%;
+  line-height: 75%;
+  z-index: 5;
+}
+i {
+  color: #182854;
+  text-align: center;
+  font-size: 11px;
+}
+
+.top-blur {
+  position: absolute;
+  top: -37px;
+  left: 82px;
+  width: 285px;
+  height: 155px;
+  background: conic-gradient(from 180deg at 50% 50%, #005696 0deg, #005696 80.99990665912628deg, #7E6B59 180.37490844726562deg, #7E6B59 210.37490129470825deg, #00366F 360deg);
+  filter: blur(40px);
+  z-index: 1;
+}
+.bottom-blur {
+  position: absolute;
+  top: 291px;
+  left: -96px;
+  width: 232px;
+  height: 155px;
+  background: conic-gradient(from 180deg at 50% 50%, #005696 0deg, #D7E6F1 80.99990665912628deg, #7E6B59 180.37490844726562deg, #DED0C4 210.37490129470825deg, #DCE6EF 360deg);
+  filter: blur(40px);
+  z-index: 4;
 }

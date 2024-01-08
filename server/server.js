@@ -28,6 +28,7 @@ app.post('/api/definition', asyncHandler(async (req, res, next) => {
         return;
     }
     term = req.body.text
+    term = term.replace(/[ ]/g, '-').trim(); //replacing spaces with hyphens, in case the term is multiple words
     url += term //setting url with the user's specified term
     res.status(200).json({message: url})
 }))

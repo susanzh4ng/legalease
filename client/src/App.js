@@ -67,19 +67,19 @@ function App() {
   };
   return (
     <div className="App">
-      <h1>hi</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='form'>
         <input 
           type="text"
           placeholder="Search ..."
+          className="input"
           name="text" //attributes this to the term object
           value={term.text} //value is from term state
           onChange={handleChange} //updating state
         />
-        <button><img src={magglass} width="26" height="26" alt='search' /></button>
+        <button className='button'><img src={magglass} width="26" height="26" alt='search' /></button>
       </form>
       <div className={isLoading ? "" : "hide"}>
-        <p>Define legal terms with ease with <span>Legalease</span></p>
+        <p className='default-text'>Define legal terms with ease with <span>Legalease</span></p>
       </div>
       <div className={isLoading ? "hide": ""}> {/*hide this div while loading*/}
         <h3>{term.text}</h3>
@@ -88,6 +88,8 @@ function App() {
       <footer>
         <i>All terms and definitions have been sourced from the Administrative Office of the U.S. Courts.</i>
       </footer>
+      <div className='top-blur'></div>
+      <div className='bottom-blur'></div>
     </div>
   );
 }
