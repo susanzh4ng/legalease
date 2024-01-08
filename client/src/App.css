@@ -20,7 +20,7 @@
   box-shadow: 4px 4px 10px 0px rgba(255, 255, 255, 0.50), -4px -4px 10px 0px rgba(24, 40, 84, 0.20);
   color: #707B96;
   font-size: 16px;
-  padding-left: 20px;
+  padding-left: 18px;
   box-sizing: border-box;
 }
 .input:focus {
@@ -28,13 +28,13 @@
   border: none;
 }
 .button {
-  z-index: 3;
   position: absolute;
   top: 66px;
-  left: 279px;
+  left: 284px;
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 2;
 }
 
 .hide {
@@ -44,20 +44,48 @@
   color: #59422C;
   font-size: 16px;
   font-weight: 400;
-  margin: 136px 41.5px 0px 41.5px;
+  margin: 142px 41.5px 0px 41.5px;
   text-align: left;
+  z-index: 2;
 }
 span {
   font-family: 'Roboto Serif', serif;
   font-weight: 600;
 }
 
+.term-text {
+  z-index: 2;
+  width: 268px;
+  text-align: left;
+  box-sizing: border-box;
+}
+.term-text h3{
+  position: absolute;
+  top: 142px;
+  left: 41px;
+  width: 268px;
+  color: #7E6B59;
+  font-family: Roboto Serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+.term-text p{
+  position: absolute;
+  top: 173px;
+  left: 41px;
+  width: 268px;
+  color: #182854;
+  font-size: 16px;
+  line-height: 120%;
+}
+
+
 footer {
   margin: 0px 41.5px 31px 41.5px;
   position: fixed; 
   bottom: 0%;
   line-height: 75%;
-  z-index: 5;
+  z-index: 2;
 }
 i {
   color: #182854;
@@ -83,5 +111,5 @@ i {
   height: 155px;
   background: conic-gradient(from 180deg at 50% 50%, #005696 0deg, #D7E6F1 80.99990665912628deg, #7E6B59 180.37490844726562deg, #DED0C4 210.37490129470825deg, #DCE6EF 360deg);
   filter: blur(40px);
-  z-index: 4;
+  z-index: 1;
 }

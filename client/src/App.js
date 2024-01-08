@@ -81,7 +81,7 @@ function App() {
       <div className={isLoading ? "" : "hide"}>
         <p className='default-text'>Define legal terms with ease with <span>Legalease</span></p>
       </div>
-      <div className={isLoading ? "hide": ""}> {/*hide this div while loading*/}
+      <div className={isLoading ? "hide": "term-text"}> {/*hide this div while loading*/}
         <h3>{term.text}</h3>
         <p>{def}</p> {/*displaying definition*/}
       </div>
